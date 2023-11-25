@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Prediction Portal</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://ioe.iisc.ac.in/wp-content/uploads/2021/04/IIScMainPage.jpg') center/cover no-repeat fixed;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 0;
+            padding: 20px;
+            text-align: left;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        form {
+            max-height: 80vh;
+            overflow-y: auto;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .submit-button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 25px 80px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 20px auto 0;
+            display: block;
+        }
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+
+        .add-button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 6px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .add-button:hover {
+            background-color: #2980b9;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Placement Prediction Portal</h1>
+    <form action="/predict" method="post">
+        <div class="form-section">
+            <label for="program">Program:</label>
+            <select id="program" name="program" required>
+                <option value="" disabled selected>Select Program</option>
+                <option value="1">M.Tech</option>
+                <option value="2">M.Tech(Res)</option>
+                <option value="3">PhD(Eng)</option>
+                <option value="4">MSc(Res)</option>
+                <option value="5">BSc(Res)</option>
+                <option value="6">M.Mgmt</option>
+                <option value="7">M.Des</option>
+                <option value="8">PhD(Sci)</option>
+                <option value="9">PhD</option>
+                <option value="10">Post Doc</option>
+            </select>
+
+            <label for="discipline">Discipline:</label>
+            <select id="discipline" name="discipline" required>
+                <option value="" disabled selected>Select Discipline</option>
+                <option value="0">Instrumentation Systems</option>
+                <option value="1">Biology</option>
+                <option value="2">Mechanical Sciences</option>
+                <option value="3">Electronic Product Design</option>
+                <option value="4">Quantum Technology</option>
+                <option value="5">Electronic Systems Engineering</option>
+                <option value="6">Centre for Nano Science & Engineering</option>
+                <option value="7">Robotics and Autonomous Systems</option>
+                <option value="8">Computational and Data Science</option>
+                <option value="9">Chemical Science</option>
+                <option value="10">Material Sciences</option>
+                <option value="11">BSc (Res) Mathematics</option>
+                <option value="12">BSc (Research) in Chemistry</option>
+                <option value="13">Management Studies</option>
+                <option value="14">Post Doc</option>
+                <option value="15">MSc (Research) in Physics</option>
+                <option value="16">Nano Science and Engineering</option>
+                <option value="17">Smart Manufacturing</option>
+                <option value="19">Sustainable Technologies</option>
+                <option value="20">Civil Engineering</option>
+                <option value="21">Signal Processing</option>
+                <!-- <option value="22">Computer Science and Automation</option> -->
+                <option value="23">Materials Engineering</option>
+                <option value="24">Master of Product Design and Manufacturing</option>
+                <option value="25">Master of Business Analytics & Technology Management</option>
+                <option value="26">Solid State and Structural Chemistry Unit</option>
+                <option value="27">Earth & Environmental Sciences</option>
+                <option value="29">Artificial Intelligence</option>
+                <!-- <option value="28">Mathematics</option> -->
+                <!-- <option value="30">Microelectronics and VLSI Design</option> -->
+                <option value="31">Interdisciplinary Centre for Energy Research</option>
+                <option value="32">Organic Chemistry</option>
+                <option value="34">The Robert Bosch Centre for Cyber-Physical Systems</option>
+                <option value="35">System Science & Automation</option>
+                <option value="33">UG - Physics</option>
+                <option value="36">Molecular Biophysics Unit</option>
+                <option value="37">Biochemistry</option>
+                <option value="38">UG - Chemistry</option>
+                <option value="39">Molecular Reproduction, Development and Genetics</option>
+                <option value="41">Communication Networks</option>
+                <option value="40">Centre for Atmospheric and Oceanic Sciences</option>
+                <option value="42">Centre for Product Design and Manufacturing (CPDM)</option>
+                <option value="43">UG - Biology</option>
+                <option value="44">Physics</option>
+                <!-- <option value="45">Signal Processing</option> -->
+                <option value="46">Interdisciplinary Mathematical Sciences</option>
+                <option value="47">Physics (PHY)</option>
+                <!-- <option value="48">Centre for Earth Sciences (CEAS)</option> -->
+                <option value="31">Microelectronics</option>
+                <!-- <option value="50">Department of Computational and Data Sciences</option> -->
+                <option value="52">Computer Science and Automation</option>
+                <option value="53">Centre for Ecological Sciences</option>
+                <option value="54">Inorganic and Physical Chemistry</option>
+                <!-- <option value="54">Materials Research Centre</option> -->
+                <option value="56">Instrumentation and Applied Physics</option>
+                <option value="57">Electrical Communication Engineering</option>
+                <!-- <option value="57">Department of Management Studies</option> -->
+                <!-- <option value="58">Materials Engineering</option> -->
+                <option value="60">Aerospace Engineering</option>
+                <!-- <option value="60">Civil Engineering</option> -->
+            </select>
+
+            <label for="gpa">GPA (0-10):</label>
+            <input type="number" id="gpa" name="gpa" step="0.1" min="0" max="10" required>
+        </div>
+
+        <div class="form-section">
+            <label for="courses">Courses (up to 10):</label>
+            <ul id="courses-list">
+                <li><input type="text" name="courses[]" required></li>
+            </ul>
+            <button type="button" class="add-button" id="add-course-btn" onclick="addCourse()">Add Course</button>
+        </div>
+
+        <div class="form-section">
+            <label for="skills">Skills (up to 10):</label>
+            <ul id="skills-list">
+                <li><input type="text" name="skills[]" required></li>
+            </ul>
+            <button type="button" class="add-button" id="add-skill-btn" onclick="addSkill()">Add Skill</button>
+        </div>
+
+        <div class="form-section">
+            <!-- Add any additional form sections here -->
+        </div>
+
+        <button type="submit" class="submit-button">Submit</button>
+    </form>
+
+    <script>
+        function addSkill() {
+            var skillsList = document.getElementById('skills-list');
+            if (skillsList.childElementCount < 10) {
+                var li = document.createElement('li');
+                li.innerHTML = '<input type="text" name="skills[]" required>';
+                skillsList.appendChild(li);
+
+                if (skillsList.childElementCount === 10) {
+                    document.getElementById('add-skill-btn').style.display = 'none';
+                }
+            }
+        }
+
+        function addCourse() {
+            var coursesList = document.getElementById('courses-list');
+            if (coursesList.childElementCount < 10) {
+                var li = document.createElement('li');
+                li.innerHTML = '<input type="text" name="courses[]" required>';
+                coursesList.appendChild(li);
+
+                if (coursesList.childElementCount === 10) {
+                    document.getElementById('add-course-btn').style.display = 'none';
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>
